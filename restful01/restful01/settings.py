@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'toys',
     'rest_framework',
+    'rest_framework.authtoken',
     'drones',
+
 ]
 
 MIDDLEWARE = [
@@ -89,8 +91,12 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
-    'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 2
+        'drones.drone_pagination.NewPagination',
+    'PAGE_SIZE':2,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        ),
  }
 
 # Password validation
