@@ -31,6 +31,9 @@ class DroneList(generics.ListCreateAPIView):
         drone_permission.IsCurrentUserOwnerOrReadOnly,
     )
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 class DroneDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = drone_models.Drone.objects.all()

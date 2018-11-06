@@ -39,7 +39,6 @@ class DroneSerializer(serializers.HyperlinkedModelSerializer):
                     'has_it_completed',
                     'inserted_timestamp'
         )
-        depth = 1
 
 
 class CompetitionSerializer(serializers.HyperlinkedModelSerializer):
