@@ -24,7 +24,7 @@ class DroneCategorySerializer(serializers.HyperlinkedModelSerializer):
 class DroneSerializer(serializers.HyperlinkedModelSerializer):
     drone_category = serializers.SlugRelatedField(
                                 queryset=drone_models.DroneCategory.objects.all(),
-                                slug_field='name'
+                               slug_field='name'
                     )
     owner = serializers.ReadOnlyField(source='owner.username')
 
